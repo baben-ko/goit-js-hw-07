@@ -1,10 +1,13 @@
-// Получить пользоваля (не массив) по email (поле email, он уникальный).
+// Напиши скрипт который, при наборе текста в инпуте input#name - input(событие input), подставляет его текущее значение в span#name - output.
+// Если инпут пустой, в спане должна отображаться строка 'незнакомец'.
 
-import users from "./users.js"
+const inputNameRef = document.querySelector('#name-input');
+const spanNameRef = document.querySelector('#name-output');
 
-const getUserWithEmail = (users, email) => users.find(user => user.email === email);
-
-console.log(getUserWithEmail(users, 'shereeanthony@kog.com')); // {объект пользователя Sheree Anthony}
-console.log(getUserWithEmail(users, 'elmahead@omatom.com')); // {объект пользователя Elma Head}
-
-
+inputNameRef.addEventListener('input', () => {
+  if (inputNameRef.value === '') {
+    spanNameRef.textContent = 'незнакомец';
+  } else {
+    spanNameRef.textContent = inputNameRef.value;
+  }
+});
